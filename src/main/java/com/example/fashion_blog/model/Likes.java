@@ -4,6 +4,7 @@ import com.example.fashion_blog.enums.Reaction;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,8 +16,14 @@ public class Likes {
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "likes_sequence")
-    private Long likesId;
+    private Long id;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Blogger blogger;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Post post;
     private Reaction reaction;
 }
+
+

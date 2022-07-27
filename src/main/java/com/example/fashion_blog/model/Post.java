@@ -3,6 +3,7 @@ package com.example.fashion_blog.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,19 +15,28 @@ public class Post {
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "post_sequence")
-    private Long postId;
+    private Long id;
     private String productName;
     private String desc;
     private String article;
     private String image;
     private Float price;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "post")
+    private List<Comments> comments;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "post")
+    private List<Likes> likes ;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Blogger blogger;
+
 
     public Post() {
     }
 
     public Post(Long postId, String productName, String desc, String article, String image, Float price) {
-        this.postId = postId;
+        this.id = postId;
         this.productName = productName;
         this.desc = desc;
         this.article = article;
@@ -42,12 +52,12 @@ public class Post {
         this.price = price;
     }
 
-    public Long getPostId() {
-        return postId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPostId(Long postId) {
-        this.postId = postId;
+    public void setId(Long postId) {
+        this.id = postId;
     }
 
     public String getProductName() {
@@ -93,7 +103,7 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "postId=" + postId +
+                "postId=" + id +
                 ", productName='" + productName + '\'' +
                 ", desc='" + desc + '\'' +
                 ", article='" + article + '\'' +

@@ -1,9 +1,7 @@
 package com.example.fashion_blog.service;
 
-import com.example.fashion_blog.model.Blogger;
 import com.example.fashion_blog.model.Post;
 import com.example.fashion_blog.repository.PostRepository;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +22,7 @@ public class PostService {
     }
 
     public void addNewPost(Post post) {
-        Optional<Post> postOptional = postRepository.findPostById(post.getPostId());
+        Optional<Post> postOptional = postRepository.findPostById(post.getId());
         if (postOptional.isPresent()){
             throw new IllegalStateException("post exists");
         }
@@ -33,13 +31,12 @@ public class PostService {
     }
 
 
-    public void deletePost(Long postId) {
-        boolean posted = postRepository.existsById(postId);
+    public void deletePost(Long id) {
+        boolean posted = postRepository.existsById(id);
         if (!posted){
-            throw new IllegalStateException("post with ID " + postId + "does not exist");
+            throw new IllegalStateException("post with ID " + id + "does not exist");
         }
-        postRepository.deleteById(postId);
+        postRepository.deleteById(id);
     }
-
 
 }

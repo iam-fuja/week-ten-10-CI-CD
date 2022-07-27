@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    @Query("SELECT p FROM Post p WHERE p.postId = ?1")
-    Optional<Post> findPostById(Long postId);
+
+    Optional<Post> findPostById(Long id);
 
 }

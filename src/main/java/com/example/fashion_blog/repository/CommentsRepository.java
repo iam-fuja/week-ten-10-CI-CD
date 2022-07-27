@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface CommentsRepository extends JpaRepository <Comments, Long >{
 
-    @Query("SELECT p FROM Post p WHERE p.postId = ?1")
-    Optional<Comments> findCommentsById(Long commentsId);
+
+    Optional<Comments> findCommentsById(Long id);
 
 }

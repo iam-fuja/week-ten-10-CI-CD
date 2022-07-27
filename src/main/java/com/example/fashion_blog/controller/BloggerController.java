@@ -33,7 +33,7 @@ public class BloggerController {
         bloggerService.deleteBlogger(bloggerId);
     }
 
-    @PutMapping(path = "{bloggerId}")
+    @PostMapping(path = "{bloggerId}")
     public void updateBlogger(@PathVariable (value = "bloggerId") Long bloggerId,
                               @RequestParam(required = false)String fullName,
                               @RequestParam(required = false) String email)  {

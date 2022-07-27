@@ -1,5 +1,6 @@
 package com.example.fashion_blog.controller;
 
+import com.example.fashion_blog.DTO.CommentsDTO;
 import com.example.fashion_blog.model.Comments;
 import com.example.fashion_blog.model.Post;
 import com.example.fashion_blog.service.CommentsService;
@@ -27,13 +28,12 @@ public class CommentsController {
     }
 
     @PostMapping
-    public void createNewComments(@RequestBody Comments comments){
-        commentsService.addNewPost(comments);
+    public void createNewComments(@RequestBody CommentsDTO commentsDto){
+        commentsService.createNewComments(commentsDto);
     }
 
     @DeleteMapping(path="{commentsId}")
     public void deleteComments(@PathVariable("commentsId") Long commentsId){
-        commentsService.deletePost(commentsId);
+        commentsService.deleteComments(commentsId);
     }
-
 }

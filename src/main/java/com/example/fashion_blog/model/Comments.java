@@ -15,12 +15,13 @@ public class Comments {
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "comments_sequence")
-    private Long commentsId;
-    @ManyToOne
+    private Long id;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Blogger blogger;
-    @ManyToOne
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Post post;
+
     private String feedback;
 }

@@ -4,8 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-@Data
+import java.util.List;
 
+@Data
 @Entity
 @Table
 public class Blogger {
@@ -20,6 +21,14 @@ public class Blogger {
     private String email;
     private String password;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "blogger")
+    private List<Comments> comments;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "blogger")
+    private List<Likes> likes;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "blogger")
+    private List<Post> post;
 
     public Blogger() {
     }

@@ -63,6 +63,15 @@ public class BloggerService {
             throw new IllegalStateException("email taken");
             }
         blogger.setEmail(email);
+        Blogger blogger1 = new Blogger();
+        blogger1.setFullName(blogger.getFullName());
+        blogger1.setEmail(blogger.getEmail());
+        blogger1.setPassword(blogger.getPassword());
+
+        blogger.setEmail(blogger1.getEmail());
+        blogger.setFullName(blogger1.getFullName());
+        blogger.setPassword(blogger1.getPassword());
+        bloggerRepository.save(blogger);
         }
         }
 }
