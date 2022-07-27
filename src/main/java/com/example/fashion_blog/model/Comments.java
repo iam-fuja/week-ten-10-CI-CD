@@ -22,6 +22,7 @@ public class Comments {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Blogger blogger;
 
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Post post;
 
