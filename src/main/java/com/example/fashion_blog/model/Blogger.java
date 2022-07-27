@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @Table
 public class Blogger {
+
     @Id
     @SequenceGenerator(name ="blogger_sequence",
                         sequenceName = "blogger_sequence",
