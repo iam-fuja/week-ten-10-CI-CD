@@ -17,6 +17,7 @@ public class Comments {
             generator = "comments_sequence")
     private Long id;
 
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Blogger blogger;
 
