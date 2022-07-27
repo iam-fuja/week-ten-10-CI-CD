@@ -8,7 +8,7 @@ import java.util.List;
 
 
 /**
- * An application to blog on fashion designs
+ ** An application to blog on fashion designs
  * */
 @Data
 @Entity
