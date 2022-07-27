@@ -6,6 +6,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+
+/**
+ * An application to blog on fashion designs
+ * */
 @Data
 @Entity
 @Table
