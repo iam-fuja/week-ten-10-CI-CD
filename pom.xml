@@ -73,6 +73,9 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>
+			blogging-styles
+		</finalName>
 	</build>
 
 </project>
